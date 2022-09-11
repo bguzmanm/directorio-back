@@ -14,6 +14,7 @@ import { AreaController } from './controllers/area.controller';
 import { CountryService } from './services/country.service';
 import { CountryController } from './controllers/country.controller';
 import { CityController } from './controllers/city.controller';
+import { CityService } from './services/city.service';
 
 @Module({
   imports: [],
@@ -34,7 +35,8 @@ import { CityController } from './controllers/city.controller';
     ToolTypeService,
     RrssService,
     AreaService,
-    CountryService
+    CountryService,
+    CityService
   ],
 })
 export class AppModule {}
