@@ -2,7 +2,7 @@ import { Column, Entity, JoinTable, ManyToMany, PrimaryColumn } from "typeorm";
 import { Role } from "./role.entity";
 
 @Entity({name: 'usuario'})
-export class UserEntity {
+export class User {
 
   @PrimaryColumn({type: "string", nullable: false, primary: true})
   username: string;

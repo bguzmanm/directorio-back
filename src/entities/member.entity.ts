@@ -12,7 +12,7 @@ import { Rrss } from "./rrss.entity";
 import { Tool } from "./tool.entity";
 import { Area } from "./area.entity";
 import { City } from "./city.entity";
-import { UserEntity } from "./user.entity";
+import { User } from "./user.entity";
 
 @Entity({name: 'miembro'})
 export class Member {
@@ -49,8 +49,8 @@ export class Member {
   @JoinColumn({name: 'idciudad'})
   city: City;
 
-  @ManyToOne(type => UserEntity)
+  @ManyToOne(type => User)
   @JoinColumn({name: 'username'})
-  user: UserEntity;
+  user: User;
 
 }
