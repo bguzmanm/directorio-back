@@ -1,47 +1,31 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { MemberController } from "./controllers/member.controller";
-import { ToolController } from "./controllers/tool.controller";
-import { MemberService } from "./services/member.service";
-import { ToolService } from "./services/tool.service";
-import { ToolTypeService } from "./services/tool-type.service";
-import { ToolTypeController } from "./controllers/tool-type.controller";
-import { RrssController } from './controllers/rrss.controller';
-import { RrssService } from "./services/rrss.service";
-import { AreaService } from './services/area.service';
-import { AreaController } from './controllers/area.controller';
-import { CountryService } from './services/country.service';
-import { CountryController } from './controllers/country.controller';
-import { CityController } from './controllers/city.controller';
-import { CityService } from './services/city.service';
-import { DatabaseModule } from './database/database.module';
 import { ConfigModule, ConfigService } from "@nestjs/config";
+import { DatabaseModule } from './database/database.module';
+import { AreaModule } from './area/area.module';
+import { CityModule } from './city/city.module';
+import { CountryModule } from './country/country.module';
+import { MemberModule } from './member/member.module';
+import { RoleModule } from './role/role.module';
+import { RrssModule } from './rrss/rrss.module';
+import { ToolModule } from './tool/tool.module';
+import { ToolTypeModule } from './tool-type/tool-type.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({isGlobal: true}),
-    DatabaseModule],
-  controllers: [
-    AppController,
-    MemberController,
-    ToolController,
-    ToolTypeController,
-    RrssController,
-    AreaController,
-    CountryController,
-    CityController
-  ],
-  providers: [
-    AppService,
-    MemberService,
-    ToolService,
-    ToolTypeService,
-    RrssService,
-    AreaService,
-    CountryService,
-    CityService
-  ],
+    DatabaseModule,
+    AreaModule,
+    CityModule,
+    CountryModule,
+    MemberModule,
+    RoleModule,
+    RrssModule,
+    ToolModule,
+    ToolTypeModule,
+    UserModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {
   static port: number;
