@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  api:
+    container_name: directorio-back
+    build: .
+    tty: true
+    ports:
+      - "3000:3000"
+    volumes:
+      - type: bind
+        source: .
+        target: /directorio-back
+  mysql:
+      image: mysql/mysql-server
+      ports:
+        - '3306:3306'
+      environment:
+        MYSQL_ROOT_PASSWORD: kupita
+        MYSQL_DATABASE: directorio
+        MYSQL_USER: brian
+        MYSQL_PASSWORD: kupita
+      volumes:
+        - /var/lib/mysql

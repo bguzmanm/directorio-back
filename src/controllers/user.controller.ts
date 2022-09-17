@@ -14,12 +14,12 @@ export class UserController {
   findAll(){
     return this.userService.findAll();
   }
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto){
-    return this.userService.update(+id, updateUserDto);
+  @Patch(':username')
+  update(@Param('username') username: string, @Body() updateUserDto: UpdateUserDto){
+    return this.userService.update(username, updateUserDto);
   }
-  @Delete(':id')
-  remove(@Param('id') id: string){
-    return this.userService.remove(+id);
+  @Delete(':username')
+  remove(@Param('username') username: string){
+    return this.userService.remove(username);
   }
 }

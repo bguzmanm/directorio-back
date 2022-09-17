@@ -32,6 +32,11 @@
 $ npm install
 ```
 
+## Ejecutar con docker ambiente desarrollo
+````bash
+$ docker compose exec api npm run start:dev
+````
+
 ## Running the app
 
 ```bash

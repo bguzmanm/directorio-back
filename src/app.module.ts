@@ -15,9 +15,13 @@ import { CountryService } from './services/country.service';
 import { CountryController } from './controllers/country.controller';
 import { CityController } from './controllers/city.controller';
 import { CityService } from './services/city.service';
+import { DatabaseModule } from './database/database.module';
+import { ConfigModule, ConfigService } from "@nestjs/config";
 
 @Module({
-  imports: [],
+  imports: [
+    ConfigModule.forRoot({isGlobal: true}),
+    DatabaseModule],
   controllers: [
     AppController,
     MemberController,
@@ -39,4 +43,9 @@ import { CityService } from './services/city.service';
     CityService
   ],
 })
-export class AppModule {}
+export class AppModule {
+  static port: number;
+  constructor(private readonly configService: ConfigService) {
+    AppModule.port = +this.configService.get('PORT');
+  }
+}

@@ -1,11 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
 import { AreaService } from "../services/area.service";
-import { CreateAreaDto, UpdateAreaDto } from "../dtos/area.dto";
+import { CreateAreaDto, UpdateAreaDto } from "../dtos";
 
 @Controller('area')
 export class AreaController {
-  constructor(private readonly areaService: AreaService) {
-  }
+  constructor(private readonly areaService: AreaService) {}
 
   @Post()
   create(@Body() createAreaDto: CreateAreaDto){
